@@ -1,0 +1,250 @@
+{
+	"info": {
+		"_postman_id": "f2d6293e-3226-4457-a181-147dd9baf1e6",
+		"name": "builders-cliente",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "consultaPaginada",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/cliente?size=3&page=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cliente"
+					],
+					"query": [
+						{
+							"key": "size",
+							"value": "3"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buscar-cliente-encontrado",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/cliente/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cliente",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buscar-cliente-nãoEncontrado",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/cliente/2000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cliente",
+						"2000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "excluir-cliente",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/cliente/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cliente",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "excluir-cliente-nãoEncontrado",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/cliente/2000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cliente",
+						"2000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cadastrarCliente-comCampoObrigatorio",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\": \"Luiz\",\n\t\"dataNascimento\": \"2013-03-20\",\n\t\"genero\": \"MASCULINO\",\n\t\"documentos\": {\n\t    \"CPF\": \"5555\",\n\t    \"IDENTIDADE\": \"222222\",\n\t    \"PASSAPORTE\": \"3333\"\n\t},\n\t\"telefones\": [\n\t  {\n\t    \"ddd\": \"061\",\n\t    \"numero\": \"2356-7879\"\n\t  },\n\t  {\n\t    \"ddd\": \"061\",\n\t    \"numero\": \"1234-5678\"\n\t  }\n\t],\n\t\"endereco\": {\n\t  \"logradouro\": \"SHCNG 706 BLOCO X\",\n\t  \"bairro\": \"Asa norte\",\n\t  \"cidade\": \"Brasilia\",\n\t  \"estado\": \"DF\",\n\t  \"complemento\": \"Apt\",\n\t  \"numero\": 210\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/cliente",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "alterarCliente",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"5\",\n\t\"nome\": \"beltrano\",\n\t\"dataNascimento\": \"2013-03-20\",\n\t\"genero\": \"MASCULINO\",\n\t\"documentos\": {\n\t    \"CPF\": \"5555\",\n\t    \"IDENTIDADE\": \"222222\",\n\t    \"PASSAPORTE\": \"3333\"\n\t},\n\t\"telefones\": [\n\t  {\n\t    \"ddd\": \"061\",\n\t    \"numero\": \"2356-7879\"\n\t  },\n\t  {\n\t    \"ddd\": \"061\",\n\t    \"numero\": \"1234-5678\"\n\t  }\n\t],\n\t\"endereco\": {\n\t  \"logradouro\": \"SHCNG 706 BLOCO X\",\n\t  \"bairro\": \"Asa norte\",\n\t  \"cidade\": \"Brasilia\",\n\t  \"estado\": \"DF\",\n\t  \"complemento\": \"Apt\",\n\t  \"numero\": 210\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/cliente/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cliente",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cadastrarCliente-semCampoObrigatorio",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\": \"Pablo\",\n\t\"genero\": \"MASCULINO\",\n\t\"documentos\": {\n\t    \"CPF\": \"5555\",\n\t    \"IDENTIDADE\": \"222222\",\n\t    \"PASSAPORTE\": \"3333\"\n\t},\n\t\"telefones\": [\n\t  {\n\t    \"ddd\": \"061\",\n\t    \"numero\": \"2356-7879\"\n\t  },\n\t  {\n\t    \"ddd\": \"061\",\n\t    \"numero\": \"1234-5678\"\n\t  }\n\t],\n\t\"endereco\": {\n\t  \"logradouro\": \"SHCNG 706 BLOCO X\",\n\t  \"bairro\": \"Asa norte\",\n\t  \"cidade\": \"Brasilia\",\n\t  \"estado\": \"DF\",\n\t  \"complemento\": \"Apt\",\n\t  \"numero\": 210\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/cliente",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "enviar-foto-cliente",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "",
+						"type": "text",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "foto",
+							"type": "file",
+							"src": "/home/vanessa/Imagens/cachorro.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/cliente/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cliente",
+						"6"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

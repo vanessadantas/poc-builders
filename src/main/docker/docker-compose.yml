@@ -1,0 +1,17 @@
+version: '2'
+services:
+  logs-postgresql:
+    image: postgres:11.5
+    container_name: logs-postgresql
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=logs
+    ports:
+      - 5432:5432
+
+#  rabbitmq:
+#    image: rabbitmq:management
+#    ports:
+#      - "5672:5672"
+#      - "15672:15672"
