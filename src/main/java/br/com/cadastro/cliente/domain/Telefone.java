@@ -10,11 +10,13 @@ import javax.persistence.*;
 @Entity
 public class Telefone {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="id_telefone_generator")
+    @SequenceGenerator(name = "telefone_generator", initialValue = 1, allocationSize = 1, sequenceName = "seq_telefone")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="telefone_generator")
     private Integer id;
     private String numero;
     private String ddd;
     @ManyToOne
+    @JoinColumn(name = "id_cliente")
     private Cliente cliente;
 
 }

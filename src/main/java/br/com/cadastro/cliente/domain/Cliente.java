@@ -14,7 +14,8 @@ import java.util.Map;
 public class Cliente {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="id_cliente_generator")
+    @SequenceGenerator(name = "cliente_generator", initialValue = 1, allocationSize = 1, sequenceName = "seq_cliente")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="cliente_generator")
     private Integer id;
     private String nome;
 
@@ -32,7 +33,7 @@ public class Cliente {
     @Column(name = "numero_documento")
     private Map<TipoDocumento, String> documentos;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private List<Telefone> telefones;
 
     @Embedded

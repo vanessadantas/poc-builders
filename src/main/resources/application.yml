@@ -13,12 +13,17 @@ spring:
         prepStmtCacheSize: 150
         prepStmtCacheSqlLimit: 1024
         useServerPrepStmts: true
+    initialization-mode: always
+#    data: classpath:data.sql
+
 
   jpa:
     show-sql: true
     database-platform: org.hibernate.dialect.PostgreSQL9Dialect
     properties:
       hibernate.temp.use_jdbc_metadata_defaults: false
+      hibernate.hbm2ddl.import_files: data.sql
     hibernate:
       ddl-auto: update
+
 
